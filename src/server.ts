@@ -1,14 +1,19 @@
 import fastify from 'fastify'
+import { ENV } from './env'
+import { transactionsRoutes } from './routes/transactions'
+import cookie from '@fastify/cookie'
 
 const app = fastify()
 
-app.get('/', (req, res) => {
-	return res.send('Rota de GET')
+app.register(cookie)
+
+app.register(transactionsRoutes, {
+	prefix: 'transactions',
 })
 
 app
 	.listen({
-		port: 3333,
+		port: ENV.PORT,
 	})
 	.then(() => {
 		console.log('🚀 HTTP Server is running!')
