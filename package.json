@@ -9,12 +9,14 @@
 		"start": "npx tsc src/server.ts",
 		"start:dev": "tsx watch src/server.ts",
 		"knex": "tsx ./node_modules/.bin/knex",
+		"build": "tsup src --out-dir build",
 		"lint": "eslint src -c .ts"
 	},
 	"devDependencies": {
 		"@rocketseat/eslint-config": "^2.2.2",
 		"@types/node": "^22.2.0",
 		"eslint": "^9.9.0",
+		"tsup": "^8.2.4",
 		"tsx": "^4.17.0",
 		"typescript": "^5.5.4"
 	},
